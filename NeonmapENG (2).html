@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Markers</title>
+<style>
+  /* Add any custom CSS styles here */
+  body {
+    font-family: Montserrat, sans-serif;
+  }
+  
+  .gm-style .gm-style-iw-c {
+    background-color: #000000;
+    border-radius: 20px;
+    width: 350px;
+    height: 300px;
+    text-align: center;
+	margin: auto;
+	padding: 0px;
+  }
+ .info-window-image {
+  max-width: 100px;
+  max-height: 70px;
+  padding-bottom: 0px;
+	margin: auto;
+  
+}
+.gm-style-iw gm-style-iw-c {
+width: 300px;
+      height: 270px;
+	  margin: auto;
+	  
+}
+  .element.style {
+  max-width: 300;
+  }
+  .custom-marker {
+    color: #e52b82;
+    font-size: 25px;
+    font-family: Montserrat, sans-serif;
+    font-style: italic;
+  }
+  
+  .custom-info-window {
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 20px;
+  }
+  
+  .custom-subheading {
+    font-size: 12px;
+    font-style: italic;
+    font-family: Montserrat, sans-serif;
+  }
+  
+  .custom-description {
+    font-size: 17px;
+    font-weight: bold;
+    font-family: Montserrat, sans-serif;
+  }
+  
+  div.gm-style-mtc {
+    display: none;
+  }
+  
+  button.gm-svpc {
+    display: none;
+  }
+
+  /* Styles for screens smaller than 768px */
+  @media screen and (max-width: 768px) {
+    .gm-style .gm-style-iw-c {
+      width: 350px;
+      height: 300px;
+	   
+	   max-width: 320;
+	   margin: auto;
+    }
+	.gm-style-iw gm-style-iw-c {
+	width: 252px;
+    height: 211px;
+	max-width: 300px;
+	margin: auto;
+	
+	.gm-style-iw.gm-style-iw-c {
+    max-width: 320px !important;
+	margin: auto;
+  }
+	}
+	 .gm-style-iw.gm-style-iw-c {
+    max-width: 300px;}
+	.gm-style-iw-d {
+	 width: 252px;
+     height: 211px;
+	 margin: auto;
+	}
+    
+    .custom-marker {
+      font-size: 20px;
+    }
+    
+    .custom-subheading {
+      font-size: 10px;
+    }
+    
+    .custom-description {
+      font-size: 15px;
+    }
+  }
+
+  /* Styles for screens smaller than 1440px */
+  @media screen and (max-width: 1440px) {
+    .gm-style .gm-style-iw-c {
+      width: 300px;
+      height: 270px;
+	   max-width: 300px;
+	   margin: auto;
+    }
+	.gm-style-iw.gm-style-iw-c {
+    max-width: 320px !important;
+	margin: auto;
+  }
+	.gm-style-iw gm-style-iw-c{
+	width: 300px;
+      height: 270px;
+	  max-width: 300px;
+	  margin: auto;
+	}
+	.gm-style-iw-d {
+	 width: 320px;
+     height: 290px;
+	 padding: 8px;
+	max-width: 320px;
+	margin: auto;
+	}
+    
+    .custom-marker {
+      font-size: 20px;
+    }
+    
+    .custom-subheading {
+      font-size: 10px;
+    }
+    
+    .custom-description {
+      font-size: 15px;
+    }
+  }
+</style>
+
+	
+  </head>
+  <body>
+    <div id="map" style="height: 600px; width="100%" "></div>
+    <script>
+      function initMap() {
+	  const customMarkerIcon = {
+    url: "https://bridgesandballoons.com/Images/2015/02/free-map-marker-icon-pink.png",
+    scaledSize: new google.maps.Size(40, 40), // Set the desired size of the marker icon
+  };
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom:12,
+          center: { lat: 56.9587714, lng: 24.1227521 },
+          styles: [
+            // Paste the provided JSON map style here
+            // ... (add the provided JSON style here)
+    {
+        "featureType": "all",
+        "elementType": "geometry.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "saturation": "-92"
+            },
+            {
+                "lightness": "-33"
+            },
+            {
+                "weight": "0.16"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#ffffff"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.text.stroke",
+        "stylers": [
+            {
+                "visibility": "off"
+            },
+            {
+                "weight": "0.01"
+            }
+        ]
+    },
+    {
+        "featureType": "all",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "color": "#524c4c"
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+	{
+    "featureType": "satellite",
+    "elementType": "all",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+    {
+        "featureType": "administrative.province",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.locality",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.neighborhood",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#332e2e"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#706b6b"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#ae429a"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels.text",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#605c5c"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#171717"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+          ],
+        });
+
+        const locations = [
+          {
+            name: "Daiquiri Riga",
+            address:
+              "Baznīcas iela 37, Centra rajons, Rīga, LV-1010, Latvia",
+            latitude: 56.9587714,
+            longitude: 24.1227521,
+            notes: "Rum, cocktails & music",
+    instagramLink: "https://www.instagram.com/p/Cr8ipzLOI_F/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+		   {
+    name: "Hot Box by Ozzo",
+    address: "Ģertrūdes iela 59, Latgales priekšpilsēta, Rīga, LV-1011, Latvia",
+    latitude: 56.9523927,
+    longitude: 24.1321228,
+    notes: "Smoke and grow shop",
+instagramLink: "https://www.instagram.com/p/CsPFKLZNu2s/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Unagi Inu",
+    address: "Jeruzalemes iela 10, Centra rajons, Rīga, LV-1010, Latvia",
+    latitude: 56.9577042,
+    longitude: 24.1141716,
+    notes: "Japanese soul food bistro in the hearth of Riga",
+instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  {
+    name: "a’drop",
+    address: "Antonijas iela 12, Centra rajons, Rīga, LV-1010, Latvia",
+    latitude: 56.9585365,
+    longitude: 24.1121759,
+    notes: "Stylish cocktail bar is The Quiet Center of Riga",
+    instagramLink: "https://www.instagram.com/p/Crc3sXRpr-o/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Nela Gems",
+    address: "Mūkusalas iela 71, Zemgales priekšpilsēta, Rīga, LV-1004, Latvia",
+    latitude: 56.9263822,
+    longitude: 24.1035358,
+    notes: "Natural stone jewelry and jewelry with Swarovski crystals",
+    instagramLink: "https://www.instagram.com/p/CrgIzcZLGUm/",
+   instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+   imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Sky Fit Studio",
+    address: "Katrīnas iela 12, Ziemeļu rajons, Rīga, LV-1045, Latvia",
+    latitude: 56.96647,
+    longitude: 24.100522,
+    notes: "Jumping fitness studio",
+    instagramLink: "https://www.instagram.com/p/Crl2FZXpFTh/",
+     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Marmelade",
+    address: "Nometņu iela 64, Zemgales priekšpilsēta, Rīga, LV-1002, Latvia",
+    latitude: 56.9356461,
+    longitude: 24.0715046,
+    notes: "Cocktail bar",
+    instagramLink: "https://www.instagram.com/p/CroXc3xs_vv/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  {
+    name: "LEDakcijas",
+    address: "Cesvaines iela 15a, Latgales priekšpilsēta, Rīga, LV-1073, Latvia",
+    latitude: 56.9267633,
+    longitude: 24.202797,
+    notes: "Specialized LED shop",
+    instagramLink: "https://www.instagram.com/p/CrqOevgPuN0/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+   {
+    name: "WakeCup",
+    address: "Saules iela 23, Daugavpils, LV-5401, Latvia",
+    latitude: 55.8705903,
+    longitude: 26.516963,
+    notes: "Coffee cafe and specialty coffee shop",
+    instagramLink: "https://www.instagram.com/p/CrtcwMxL_Af/",
+     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Arcadia",
+    address: "Peitavas iela 5, Centra rajons, Rīga, LV-1050, Latvia",
+    latitude: 56.9462545,
+    longitude: 24.1100274,
+    notes: "Party Bar & Restaurant in Riga Old Town",
+    instagramLink: "https://www.instagram.com/p/CrysxM4NIaN/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  {
+    name: "White Chew",
+    address: "Krišjāņa Barona iela 28, Centra rajons, Rīga, LV-1050, Latvia",
+    latitude: 56.9520033,
+    longitude: 24.1227862,
+    notes: "Snus, Electronic Cigarettes, CBD Products, Vape Liquids",
+    instagramLink: "https://www.instagram.com/p/Cr1NrVsOqyc/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  {
+    name: "Raugs Pizza",
+    address: "Nometņu iela 64A, Zemgales priekšpilsēta, Rīga, LV-1002, Latvia",
+    latitude: 56.9361074,
+    longitude: 24.0712877,
+    notes: "Authentic Roman-style pizza in slices “pizza al taglio”",
+    instagramLink: "https://www.instagram.com/p/Cr1NrVsOqyc/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Street Food spotiņš",
+    address: "Nēģu iela 7, Latgales priekšpilsēta, Rīga, LV-1050, Latvia",
+    latitude: 56.9438573,
+    longitude: 24.1149982,
+    notes: "Street food",
+    instagramLink: "https://www.instagram.com/p/Cr6iq-ZrtMr/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "" // Replace with the actual image URL
+	 },
+  {
+    name: "Sapņi un kokteiļi",
+    address: "Blaumaņa iela 32, Centra rajons, Rīga, LV-1011, Latvia",
+    latitude: 56.9521051,
+    longitude: 24.1253977,
+    notes: "Culture bar, club, cocktail bar, disco",
+    instagramLink: "https://www.instagram.com/p/Cr_lEkLr2d4/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  {
+    name: "MAD Cafe",
+    address: "Raunas iela 37, Vidzemes priekšpilsēta, Rīga, LV-1084, Latvia",
+    latitude: 56.9683799,
+    longitude: 24.1793915,
+    notes: "", // The notes for this location seem to be missing.
+    instagramLink: "https://www.instagram.com/p/CsBezjYslH_/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  {
+    name: "M50",
+    address: "Miera iela 15, Centra rajons, Rīga, LV-1001, Latvia",
+    latitude: 56.9620189,
+    longitude: 24.1304204,
+    notes: "Cozy store with modern and trendy selection of merchandise.",
+    instagramLink: "https://www.instagram.com/p/CsEViXTtMc5/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Bar Six",
+    address: "Ģertrūdes iela 14A, Centra rajons, Rīga, LV-1011, Latvia",
+    latitude: 56.9566343,
+    longitude: 24.1232091,
+    notes: "First speakeasy cocktail bar in Riga",
+    instagramLink: "https://www.instagram.com/p/CsGZNMwt0cf/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Laska",
+    address: "Ernesta Birznieka-Upīša iela 18, Latgales priekšpilsēta, Rīga, LV-1050, Latvia",
+    latitude: 56.9491603,
+    longitude: 24.128148,
+    notes: "Bar, concert space, chill",
+    instagramLink: "https://www.instagram.com/p/CsJ74qQt3n3/",
+  instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+  imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	  },
+  {
+    name: "Wine House",
+    address: "Miera iela 15, Centra rajons, Rīga, LV-1001, Latvia",
+    latitude: 56.9622796,
+    longitude: 24.1302703,
+    notes: "Wine and spirits shop",
+    instagramLink: "https://www.instagram.com/p/CsMS50dN3S2/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Auss Bar",
+    address: "Ģertrūdes iela 59a, Latgales priekšpilsēta, Rīga, LV-1011, Latvia",
+    latitude: 56.9525266,
+    longitude: 24.1324392,
+    notes: "Drinks, music, vibe",
+    instagramLink: "https://www.instagram.com/p/CsPFKLZNu2s/",
+    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 },
+  {
+    name: "Innocent Cafe",
+    address: "Blaumaņa iela 34, Centra rajons, Rīga, LV-1011, Latvia",
+    latitude: 56.9519246,
+    longitude: 24.1255845,
+    notes: "Cozy place for illy coffee, brunch and delicious Italian pizza.",
+    instagramLink: "https://www.instagram.com/p/CsQ3l5DuQFr/",
+	instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+   {
+    name: "Rocket Bean",
+    address: "Miera iela 36, Centra rajons, Rīga, LV-1001, Latvia",
+    latitude: 56.9638554,
+    longitude: 24.1331787,
+    notes: "Coffee roastery and specialty coffee shop",
+    instagramLink: "https://www.instagram.com/p/CsTxFTPrade/",
+	instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
+	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	},
+  
+          // Add more locations here with the same format as above
+        ];
+
+        const infowindow = new google.maps.InfoWindow();
+
+locations.forEach((location) => {
+  const marker = new google.maps.Marker({
+    position: { lat: location.latitude, lng: location.longitude },
+    map,
+    title: location.name,
+    icon: customMarkerIcon, // Use the customMarkerIcon for the marker
+  });
+
+  marker.addListener("click", () => {
+    const content =
+       '<div id="content">' +
+          '<div class="info-window-image">' +
+          '<img src="' +
+          location.imageUrl +
+          '" alt="' +
+          location.name +
+          '" style="width: 100%; height: auto; border-radius: 10px 10px 0 0;">' +
+          '</div>' +
+          '<h1 id="firstHeading" class="firstHeading custom-marker">' +
+          location.name +
+          '</h1>' +
+          '<div id="bodyContent" class="custom-info-window">' +
+          '<p class="custom-subheading">' +
+          location.address +
+          '</p>' +
+          '<p class="custom-description">' +
+          location.notes +
+          '</p>' +
+          '<a href="' +
+          location.instagramLink +
+          '" target="_blank">' +
+          '<img src="' +
+          location.instagramIcon +
+          '" alt="Instagram" style="width: 20px; height: 20px;">' +
+          '</a>' +
+          '</div>' +
+          '</div>';
+
+    infowindow.setContent(content);
+    infowindow.open(map, marker);
+	
+	  // Get the info-window-image element and apply style changes
+  const infoWindowContent = document.querySelector(".gm-style-iw .gm-style-iw-c");
+  infoWindowContent.style.maxWidth = "300px";
+  // You can add more style changes here if needed
+  });
+});
+      }
+
+      window.initMap = initMap;
+    </script>
+    <!-- Replace YOUR_API_KEY with your actual Google Maps API key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqM4tuGqfw2w6wyFj8XcZCUi0HBQRMJl4&callback=initMap" async defer></script>
+  </body>
+</html>
