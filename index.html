@@ -11,20 +11,30 @@
   }
 
 .gm-style img {
-    max-width: 85px ;
+    max-width: 262px ;
 }
   .gm-style .gm-style-iw-c {
     background-color: #000000;
     border-radius: 20px;
     width: 350px;
-    height: 300px;
+    height: 310px;
     text-align: center;
 	margin: auto;
 	padding: 0px;
   }
+.gm-ui-hover-effect > span {
+  /* Ваши стили для элемента .gm-ui-hover-effect > span */
+  color: white; /* Пример: установка белого цвета текста */
+  background-color: white;
+  margin-top: 17px !important;  /* Пример: установка синего цвета фона */
+  /* Добавьте другие стили, которые вам нужны */
+  margin-left: -4px !important;
+}
+
+
  .info-window-image {
-  max-width: 200px;
-  max-height: 77px;
+  max-width: 305px;
+  max-height: 125px;
   padding-bottom: 40px;
   padding-top: 10px;
 	margin: auto;
@@ -53,7 +63,7 @@ width: 300px;
   }
   .gm-style .gm-style-iw-d{
     width: 375px;
-    height: 315px;
+    height: 340px;
 }
   .custom-subheading {
     font-size: 12px;
@@ -79,7 +89,7 @@ width: 300px;
   @media screen and (max-width: 768px) {
     .gm-style .gm-style-iw-c {
       width: 350px;
-      height: 300px;
+      height: 310px;
 	   
 	   max-width: 325;
 	   margin: auto;
@@ -119,8 +129,8 @@ width: 300px;
   /* Styles for screens smaller than 1440px */
   @media screen and (max-width: 1440px) {
     .gm-style .gm-style-iw-c {
-      width: 325px;
-      height: 280px;
+      width: 324;
+      height: 310px;
 	   max-width: 325px;
 	   margin: auto;
     }
@@ -161,6 +171,9 @@ width: 300px;
   <body>
     <div id="map" style="height: 600px; width: 100%;" "></div>
     <script>
+	  let currentInfoWindow = null; // Переменная для хранения текущего информационного окна
+	  
+	  
       function initMap() {
 	  const customMarkerIcon = {
     url: "https://bridgesandballoons.com/Images/2015/02/free-map-marker-icon-pink.png",
@@ -372,7 +385,7 @@ width: 300px;
     notes: "Smoke and grow shop",
 instagramLink: "https://www.instagram.com/p/CsPFKLZNu2s/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Unagi Inu",
@@ -382,7 +395,7 @@ instagramLink: "https://www.instagram.com/p/CsPFKLZNu2s/",
     notes: "Japanese soul food bistro in the hearth of Riga",
 instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	},
   {
     name: "a’drop",
@@ -392,7 +405,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Stylish cocktail bar is The Quiet Center of Riga",
     instagramLink: "https://www.instagram.com/p/Crc3sXRpr-o/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Nela Gems",
@@ -402,7 +415,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Natural stone jewelry and jewelry with Swarovski crystals",
     instagramLink: "https://www.instagram.com/p/CrgIzcZLGUm/",
    instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-   imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+   imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Sky Fit Studio",
@@ -412,7 +425,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Jumping fitness studio",
     instagramLink: "https://www.instagram.com/p/Crl2FZXpFTh/",
      instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	 imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	 imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Marmelade",
@@ -422,7 +435,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Cocktail bar",
     instagramLink: "https://www.instagram.com/p/CroXc3xs_vv/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	},
   {
     name: "LEDakcijas",
@@ -432,7 +445,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Specialized LED shop",
     instagramLink: "https://www.instagram.com/p/CrqOevgPuN0/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	},
    {
     name: "WakeCup",
@@ -442,7 +455,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Coffee cafe and specialty coffee shop",
     instagramLink: "https://www.instagram.com/p/CrtcwMxL_Af/",
      instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	 imageUrl: "pic/photo1691142493.jpeg" // Replace with the actual image URL
+	 imageUrl: "pic/Screenshot_4.png" // Replace with the actual image URL
 	 },
   {
     name: "Arcadia",
@@ -472,7 +485,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Authentic Roman-style pizza in slices “pizza al taglio”",
     instagramLink: "https://www.instagram.com/p/Cr1NrVsOqyc/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Street Food spotiņš",
@@ -482,7 +495,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Street food",
     instagramLink: "https://www.instagram.com/p/Cr6iq-ZrtMr/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "pic/IMG_3353.JPG" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_2.png" // Replace with the actual image URL
 	 },
   {
     name: "Sapņi un kokteiļi",
@@ -492,7 +505,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Culture bar, club, cocktail bar, disco",
     instagramLink: "https://www.instagram.com/p/Cr_lEkLr2d4/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	},
   {
     name: "MAD Cafe",
@@ -502,7 +515,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "", // The notes for this location seem to be missing.
     instagramLink: "https://www.instagram.com/p/CsBezjYslH_/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	},
   {
     name: "M50",
@@ -512,7 +525,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Cozy store with modern and trendy selection of merchandise.",
     instagramLink: "https://www.instagram.com/p/CsEViXTtMc5/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Bar Six",
@@ -532,7 +545,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Bar, concert space, chill",
     instagramLink: "https://www.instagram.com/p/CsJ74qQt3n3/",
   instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-  imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+  imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	  },
   {
     name: "Wine House",
@@ -552,7 +565,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Drinks, music, vibe",
     instagramLink: "https://www.instagram.com/p/CsPFKLZNu2s/",
     instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	 },
   {
     name: "Innocent Cafe",
@@ -562,7 +575,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Cozy place for illy coffee, brunch and delicious Italian pizza.",
     instagramLink: "https://www.instagram.com/p/CsQ3l5DuQFr/",
 	instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_1.png" // Replace with the actual image URL
 	},
    {
     name: "Rocket Bean",
@@ -572,7 +585,7 @@ instagramLink: "https://www.instagram.com/p/CrbMKApPGT3/",
     notes: "Coffee roastery and specialty coffee shop",
     instagramLink: "https://www.instagram.com/p/CsTxFTPrade/",
 	instagramIcon: "https://upload.wikimedia.org/wikipedia/commons/5/58/Instagram-Icon.png",
-	imageUrl: "pic/photo1690616475.jpeg" // Replace with the actual image URL
+	imageUrl: "pic/Screenshot_3.png" // Replace with the actual image URL
 	},
   
           // Add more locations here with the same format as above
@@ -590,37 +603,42 @@ locations.forEach((location) => {
 
   marker.addListener("click", () => {
     const content =
-       '<div id="content">' +
-          '<div class="info-window-image">' +
-          '<img src="' +
-          location.imageUrl +
-          '" alt="' +
-          location.name +
-          '" style="width: 100%; height: auto; border-radius: 10px 10px 0 0;">' +
-          '</div>' +
-          '<h1 id="firstHeading" class="firstHeading custom-marker">' +
-          location.name +
-          '</h1>' +
-          '<div id="bodyContent" class="custom-info-window">' +
-          '<p class="custom-subheading">' +
-          location.address +
-          '</p>' +
-          '<p class="custom-description">' +
-          location.notes +
-          '</p>' +
-          '<a href="' +
-          location.instagramLink +
-          '" target="_blank">' +
-          '<img src="' +
-          location.instagramIcon +
-          '" alt="Instagram" style="width: 20px; height: 20px;">' +
-          '</a>' +
-          '</div>' +
-          '</div>';
+     '<div id="content">' +
+   '<div id="content" class="info-window">' +
+      '<div class="info-window-close" onclick="closeInfoWindow()">&times;</div>' +
+      '<div class="info-window-image">' +
+         '<a href="' + location.instagramLink + '" target="_blank">' +
+            '<img src="' + location.imageUrl + '" alt="' + location.name + '" style="width: 100%; height: auto; border-radius: 10px 10px 0 0;">' +
+         '</a>' +
+      '</div>' +
+      '<h1 id="firstHeading" class="firstHeading custom-marker">' +
+         location.name +
+      '</h1>' +
+      '<div id="bodyContent" class="custom-info-window">' +
+         '<p class="custom-subheading">' +
+            location.address +
+         '</p>' +
+         '<p class="custom-description">' +
+            location.notes +
+         '</p>' +
+      '</div>' +
+   '</div>' +
+'</div>';
+
 
     infowindow.setContent(content);
     infowindow.open(map, marker);
 	
+	// Закрыть текущее информационное окно, если оно есть.
+            if (currentInfoWindow) {
+              currentInfoWindow.close();
+            }
+	// Найдите кнопку закрытия и добавьте ей класс
+const closeButton = infowindow.getContent().querySelector('button[aria-label="Close"]');
+if (closeButton) {
+  closeButton.classList.add('custom-close-button');
+}
+
 	  // Get the info-window-image element and apply style changes
   const infoWindowContent = document.querySelector(".gm-style-iw .gm-style-iw-c");
   infoWindowContent.style.maxWidth = "120px";
